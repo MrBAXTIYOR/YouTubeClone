@@ -1,0 +1,106 @@
+.vidioitemcommet_wrapper {
+  width: 640px;
+  margin-top: 30px;
+  
+  
+  h1 {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 137%;
+    text-transform: capitalize;
+    color: var(--white-color);
+  }
+}
+.vidioitem_input {
+  margin-top: 10px;
+  input {
+    padding: 7px 0px 8px 0px;
+    width: 584px;
+    height: 40px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 143%;
+    color: var(--gray-color);
+    background: transparent;
+    outline: none;
+  }
+}
+.vidioitem_commet {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  &_item {
+    display: flex;
+    align-items: start;
+    gap: 15px;
+    margin-top: 20px;
+    img {
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+    }
+    &_info {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      &_header {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        h3 {
+          font-family: var(--font-family);
+          font-weight: 700;
+          font-size: 13px;
+          line-height: 154%;
+          color: var(--white-color);
+        }
+        p {
+          font-family: var(--font-family);
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 167%;
+          color: var(--gray-color);
+        }
+      }
+      p {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 143%;
+        color: var(--white-color);
+      }
+      &_footer {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        align-items: center;
+        .icon {
+          font-size: 17px;
+        }
+        &_like {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          p {
+            font-family: var(--font-family);
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 150%;
+            color: var(--gray-color);
+          }
+        }
+        p {
+          font-family: var(--font-family);
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 150%;
+          text-transform: uppercase;
+          color: var(--gray-color);
+        }
+      }
+    }
+  }
+}

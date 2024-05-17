@@ -1,0 +1,27 @@
+.rigthbar_header_wrapper {
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+}
+
+.rightbar_item {
+  border-radius: 32px;
+  padding: 8px 12px;
+  background: var(--border-color);
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--white-color);
+  cursor: pointer;
+}
+.bg {
+  border-radius: 32px;
+  padding: 8px 12px;
+
+  background: var(--white-color);
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #030303;
+  cursor: pointer;
+}

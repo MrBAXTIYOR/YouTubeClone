@@ -1,0 +1,64 @@
+.channelitem {
+  padding-left: 220px;
+  width: 100%;
+}
+.ww {
+  width: 100%;
+  height: 192px;
+  margin-top: 10px;
+  object-fit: cover;
+}
+p {
+  color: white;
+}
+.chennelitem_info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 80px;
+  img {
+    border-radius: 50%;
+  }
+}
+.chnanelitembody_wrapper{
+  display: flex;
+}
+.chennelitem_info_item-1 {
+  h1 {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 24px;
+    color: var(--white-color);
+  }
+  p {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--gray-color);
+  }
+}
+.channel_info_item-2 {
+  display: flex;
+  align-items: center;
+  margin-left: 80px;
+  margin-top: 30px;
+  gap: 40px;
+  p {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: var(--white-color);
+    cursor: pointer;
+  }
+}
+.channelvidio_wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-left: 20px;
+}
+.open{
+  padding-left: 0;
+}

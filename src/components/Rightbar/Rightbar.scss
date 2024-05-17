@@ -1,0 +1,12 @@
+.rigthbar_wrapper {
+  width: 100%;
+  height: 100vh;
+
+}
+.card{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 30px;
+}

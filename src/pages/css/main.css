@@ -1,0 +1,17 @@
+.vidio {
+  padding: 20px;
+  z-index: -3;
+}
+.youtube {
+  margin-top: 30px;
+  padding-left: 150px;
+}
+.channel_wrapper{
+  padding: 30px 0 0 20px;
+}
+.main_wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
