@@ -27,7 +27,7 @@ const Header = () => {
     setVidio(data.videos);
     navigate("/");
   };
-  
+
   return (
     <div className="header_wrapper">
       <div className="header_icon">
