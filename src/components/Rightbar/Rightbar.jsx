@@ -10,10 +10,9 @@ import Card from "../Card/Card";
 import "./Rightbar.scss";
 
 export default function Rightbar() {
+  const { setIsLoading, isLoading } = useContext();
+  const { vidio, setVidio } = useContext();
 
- const {setIsLoading,isLoading} =useContext() 
-   const {vidio,setVidio} = useContext()
-   
   const getData = async () => {
     setIsLoading(true);
     try {

@@ -1,4 +1,3 @@
-import youtube from "../../Assets/Images.png";
 
 import "./Card.scss";
 
