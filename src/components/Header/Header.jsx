@@ -1,28 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { profilePic, ytLogo } from "../../assets";
-import { useContext } from "../../context/Context";
-import "./Header.scss";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import customAxios from "./../../service/axios";
 import { Link, useNavigate } from "react-router-dom";
+
+import { useContext } from "../../context/Context";
+
+import {  ytLogo } from "../../assets";
+
+import "./Header.scss";
 
 const Header = () => {
   const navigate = useNavigate();
-  const { setIsSidebarOpen, setVidio, rightbarheader } = useContext();
+  const { setIsSidebarOpen, getSearch } = useContext();
   const { register, handleSubmit } = useForm();
   const [query, setQuery] = useState(null);
 
-  const getSearch = async (query) => {
-    const { data } = await customAxios.get("/search/", {
-      params: {
-        query: query || rightbarheader,
-        lang: "en",
-        order_by: "this_month",
-        country: "us",
-      },
-    });
-    console.log(data);
-    setVidio(data.videos);
+  const onSubmit = (data) => {
+    setQuery(data.query);
+    getSearch(data.query);
     navigate("/");
   };
 
@@ -36,7 +30,7 @@ const Header = () => {
           <img src={ytLogo} alt="YouTube Logo" />
         </Link>
       </div>
-      <form className="header_search" onSubmit={handleSubmit((data) => setQuery(getSearch(data.query)))}>
+      <form className="header_search" onSubmit={handleSubmit(onSubmit)}>
         <input type="text" placeholder="Search" {...register("query")} />
       </form>
     </div>

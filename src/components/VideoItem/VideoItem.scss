@@ -1,8 +1,8 @@
 .vidioitem_wrapper {
   padding: 20px 0px 8px 0px;
-  width: 100%;
+max-width: 750px;
 
-  margin: 0 auto;
+
   h2 {
     font-family: var(--font-family);
     font-weight: 400;
@@ -54,9 +54,9 @@
 }
 
 .vidioitem_info {
-  width: 100%;
+  max-width: 750px;
   
-  margin: 0 auto;
+
 }
 
 .vidioitem_info_item-1 {

@@ -1,16 +1,15 @@
-import { useEffect } from "react";
 import { useState } from "react";
+import { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { useParams } from "react-router-dom";
 
 import { v4 as uuidv4 } from "uuid";
 
 import customAxios from "../service/axios";
-import Sidebar from "../components/Sidebar/Sidebar";
-import Header from "./../components/Header/Header";
 import ChannelItem from "./../components/ChannelItem/ChannelItem";
 
 import "./css/main.css";
-import { Helmet } from "react-helmet";
+
 const Channel = () => {
   const { id } = useParams();
 

@@ -1,4 +1,5 @@
 import "./ChannelItemVidio.scss";
+
 const ChannelItemVidio = ({ number_of_views, thumbnails, title, author, published_time, video_length }) => {
   return (
     <div>

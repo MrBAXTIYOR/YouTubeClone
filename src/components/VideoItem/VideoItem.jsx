@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
 import customAxios from "../../service/axios";
 
@@ -37,12 +37,11 @@ const VidioItem = (props) => {
 
   useEffect(() => {
     setTimeout(getComments, 3000);
-    setTimeout(getTrendingVideos, 2000);
+    setTimeout(getTrendingVideos, 5000);
   }, []);
 
   return (
     <>
-      
       <div className="vidioitem_wrapper">
         <h2>{props?.title}</h2>
         <div className="vidioitem_base">
@@ -75,8 +74,7 @@ const VidioItem = (props) => {
         </div>
       </div>
       {comments && comments.map((comment) => <VidioItemCommet key={uuidv4()} {...comment} />)}
-      
-     
+
       <div className="trending-videos">
         {video.map((vid) => (
           <Link to={`/videos/${vid.video_id}`} key={uuidv4()}>
