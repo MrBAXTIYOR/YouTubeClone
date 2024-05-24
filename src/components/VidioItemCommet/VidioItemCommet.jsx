@@ -1,4 +1,4 @@
-import avatar from "../../Assets/Avatar.png";
+import avatar from "../../assets/Avatar.png";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 import "./VidioItemCommet.scss";

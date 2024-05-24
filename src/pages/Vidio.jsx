@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import customAxios from "./../service/axios";
+import { Helmet } from "react-helmet";
 import YouTube from "react-youtube";
-import "./css/main.css";
-import VidioItem from "../components/VidioItem/VidioItem";
-import Header from "./../components/Header/Header";
 import { v4 as uuidv4 } from "uuid";
+
+import customAxios from "./../service/axios";
+import VideoItem from "../components/VideoItem/VideoItem";
+
+import "./css/main.css";
 const Vidio = () => {
-  const [videoId, setVideoId] = useState();
-  const [vidata, setVidata] = useState([]);
+  const [video, setVideo] = useState();
   const { id } = useParams() || "";
   const getVideo = async () => {
     const { data } = await customAxios.get("/video/details", {
@@ -16,20 +17,24 @@ const Vidio = () => {
         video_id: id,
       },
     });
-    setVideoId(data.video_id);
-    setVidata([data]);
+    setVideo(data);
   };
   useEffect(() => {
     getVideo();
   }, []);
 
   return (
-    <div className="vidio">
-      <div className="youtube">
-        {videoId && <YouTube videoId={videoId} />}
-        {vidata && vidata.map((v) => <VidioItem key={uuidv4()} {...v} />)}
+    <>
+      <Helmet>
+        <title>{`YouTube | ${video?.title || ""}`}</title>
+      </Helmet>
+      <div className="vidio">
+        <div className="youtube">
+          <YouTube videoId={id} id="you" />
+          <VideoItem key={uuidv4()} {...video} />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

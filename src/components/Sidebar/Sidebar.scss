@@ -9,6 +9,7 @@
   left: -100%;
   transition: all 0.8s ease;
   background-color: rgba(0, 0, 0, 0.498);
+  padding-top: 20px;
   &--open {
     transition: all 0.5s ease;
     left: 0;
@@ -72,6 +73,7 @@
   font-weight: 400;
   font-size: 14px;
   color: var(--white-color);
+  
 }
 
 .sidebarFriendList {

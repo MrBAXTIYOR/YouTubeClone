@@ -6,7 +6,7 @@ import ChannelItemVidio from "../ChannelItemVidio/ChannelItemVidio";
 import "./ChannelItem.scss";
 
 const ChannelItembody = ({ videos }) => {
-  return <>{videos && videos.map((video) => <ChannelItemVidio key={uuidv4()} {...video} />)}</>;
+  return <div className="chnenel">{videos && videos.map((video) => <ChannelItemVidio key={uuidv4()} {...video} />)}</div>;
 };
 
 export default ChannelItembody;

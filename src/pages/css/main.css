@@ -5,7 +5,19 @@
 .youtube {
   margin-top: 30px;
   padding-left: 150px;
+  @media screen and (max-width:767px) {
+    padding-left: 0;
+    #you{
+      width: 100%;
+      margin-top: 70px !important;
+    }
+  }
+#you{
+  margin-top: 20px;
 }
+}
+
+
 .channel_wrapper{
   padding: 30px 0 0 20px;
 }

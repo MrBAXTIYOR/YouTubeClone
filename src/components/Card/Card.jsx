@@ -1,4 +1,3 @@
-
 import "./Card.scss";
 
 const Card = ({ title, author, thumbnails, number_of_views, published_time, video_length }) => {

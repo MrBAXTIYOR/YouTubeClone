@@ -10,10 +10,11 @@ import Header from "./../components/Header/Header";
 import ChannelItem from "./../components/ChannelItem/ChannelItem";
 
 import "./css/main.css";
+import { Helmet } from "react-helmet";
 const Channel = () => {
   const { id } = useParams();
 
-  const [channelData, setChannelData] = useState([]);
+  const [channelData, setChannelData] = useState({});
 
   const getChanneldata = async () => {
     const { data } = await customAxios.get("/channel/details", {
@@ -21,17 +22,26 @@ const Channel = () => {
         channel_id: id,
       },
     });
-    setChannelData([data]);
+    setChannelData(data);
   };
 
   useEffect(() => {
     getChanneldata();
   }, []);
 
+  console.log(channelData);
+
   return (
-    <div className="channel_wrapper">
-      <div className="main_wrapper">{channelData && channelData.map((data) => <ChannelItem key={uuidv4()} {...data} />)}</div>
-    </div>
+    <>
+      <Helmet>
+        <title>{`YouTube | ${channelData?.title}`}</title>
+      </Helmet>
+      <div className="channel_wrapper">
+        <div className="main_wrapper">
+          <ChannelItem key={uuidv4()} {...channelData} />)
+        </div>
+      </div>
+    </>
   );
 };
 

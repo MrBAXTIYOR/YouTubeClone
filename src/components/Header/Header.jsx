@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
-
-import { profilePic, ytLogo } from "../../Assets";
-
+import { profilePic, ytLogo } from "../../assets";
 import { useContext } from "../../context/Context";
-
 import "./Header.scss";
 import { useForm } from "react-hook-form";
 import customAxios from "./../../service/axios";
@@ -14,6 +11,7 @@ const Header = () => {
   const { setIsSidebarOpen, setVidio, rightbarheader } = useContext();
   const { register, handleSubmit } = useForm();
   const [query, setQuery] = useState(null);
+
   const getSearch = async (query) => {
     const { data } = await customAxios.get("/search/", {
       params: {
@@ -35,7 +33,7 @@ const Header = () => {
           <i className="fa-solid fa-bars"></i>
         </button>
         <Link to={`/`}>
-          <img src={ytLogo} alt="" />
+          <img src={ytLogo} alt="YouTube Logo" />
         </Link>
       </div>
       <form className="header_search" onSubmit={handleSubmit((data) => setQuery(getSearch(data.query)))}>
