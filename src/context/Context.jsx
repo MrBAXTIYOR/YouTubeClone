@@ -1,5 +1,5 @@
 import { createContext, useContext as useBaseContext, useState } from "react";
-import customAxios from "../service/axios.js"; 
+import customAxios from "../service/axios.js";
 const Context = createContext({});
 
 const ContextProvider = ({ children }) => {
@@ -7,18 +7,24 @@ const ContextProvider = ({ children }) => {
   const [vidio, setVidio] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [rightbarOpen, setRightbarOpen] = useState(false);
-  const [rightbarheader, setRightbarheader] = useState(null);
 
   const getSearch = async (query) => {
-    const { data } = await customAxios.get("/search/", {
-      params: {
-        query: query || rightbarheader,
-        lang: "en",
-        order_by: "this_month",
-        country: "us",
-      },
-    });
-    setVidio(data.videos);
+    setIsLoading(true);
+    try {
+      const { data } = await customAxios.get("/search/", {
+        params: {
+          query: query,
+          lang: "en",
+          order_by: "this_month",
+          country: "us",
+        },
+      });
+      setVidio(data.videos);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const ContextValue = {
@@ -30,8 +36,6 @@ const ContextProvider = ({ children }) => {
     isLoading,
     rightbarOpen,
     setRightbarOpen,
-    rightbarheader,
-    setRightbarheader,
     getSearch,
   };
 

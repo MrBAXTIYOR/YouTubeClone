@@ -5,11 +5,13 @@ import YouTube from "react-youtube";
 import { v4 as uuidv4 } from "uuid";
 
 import customAxios from "./../service/axios";
+import { useContext } from "../context/Context";
 import VideoItem from "../components/VideoItem/VideoItem";
 
 import "./css/main.css";
 const Vidio = () => {
   const [video, setVideo] = useState();
+  const {setIsSidebarOpen} = useContext();
   const { id } = useParams() || "";
   const getVideo = async () => {
     const { data } = await customAxios.get("/video/details", {
@@ -21,6 +23,7 @@ const Vidio = () => {
   };
   useEffect(() => {
     getVideo();
+    setIsSidebarOpen(false)
   }, []);
 
   return (

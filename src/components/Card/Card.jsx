@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
 import "./Card.scss";
 
-const Card = ({ title, author, thumbnails, number_of_views, published_time, video_length }) => {
+const Card = ({ title, author, thumbnails, video_id, number_of_views, published_time, video_length }) => {
   return (
     <div className="card_wrapper">
+      <Link className="link" to={`/videos/${video_id}`} />
       <img src={thumbnails.at(0).url} alt="" />
       <p className="card_viewer">{video_length}</p>
       <div className="card_item">

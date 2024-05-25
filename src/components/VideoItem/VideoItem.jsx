@@ -36,8 +36,8 @@ const VidioItem = (props) => {
   };
 
   useEffect(() => {
-    setTimeout(getComments, 3000);
-    setTimeout(getTrendingVideos, 5000);
+    setTimeout(getComments, 2000);
+    setTimeout(getTrendingVideos, 2000);
   }, []);
 
   return (

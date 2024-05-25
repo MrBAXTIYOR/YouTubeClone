@@ -10,7 +10,7 @@ import ChannelItem from "./../components/ChannelItem/ChannelItem";
 
 import "./css/main.css";
 
-const Channel = () => {
+const Channel =  () => {
   const { id } = useParams();
 
   const [channelData, setChannelData] = useState({});

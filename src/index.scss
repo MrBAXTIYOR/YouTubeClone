@@ -1,5 +1,5 @@
 :root {
-  --background-color: #212121;
+  --background-color: #222;
   --white-color: #fff;
   --gray-color: #aaa;
   --background-color-2: #121212;
@@ -12,6 +12,7 @@ body {
   font-family: "Roboto", sans-serif;
   background: var(--background-color);
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -21,46 +22,34 @@ body {
 }
 
 .container {
-  padding: 20px;
+  max-width: 1530px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+
+  @media only screen and (max-width: 768px) {
+    padding: 0 15px;
+  }
+
+  @media only screen and (max-width: 475px) {
+    padding: 0 10px;
+  }
 }
 
 .bar_wrapper {
   display: flex;
   position: relative;
   padding-left: 240px;
-}
+  transition: padding-left 0.5s ease;
 
-.loader {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.6);
-  width: 90%;
-  transform: translateX(240px);
-  &Inner {
-    width: 50px;
-    --b: 8px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    padding: 1px;
-    background: conic-gradient(#0000 10%, #f03355) content-box;
-    -webkit-mask: repeating-conic-gradient(#0000 0deg, #000 1deg 20deg, #0000 21deg 36deg), radial-gradient(farthest-side, #0000 calc(100% - var(--b) - 1px), #000 calc(100% - var(--b)));
-    -webkit-mask-composite: destination-in;
-    mask-composite: intersect;
-    animation: l4 1s infinite steps(10);
+  @media screen and (max-width: 1200px) {
+    padding-left: 0;
   }
 }
-
-@keyframes l4 {
-  to {
-    transform: rotate(1turn);
-  }
-}
-
 
 .open {
   padding: 0;
+}
+.load {
+  background-color: black;
 }

@@ -1,7 +1,6 @@
 .vidioitem_wrapper {
   padding: 20px 0px 8px 0px;
-max-width: 750px;
-
+  max-width: 750px;
 
   h2 {
     font-family: var(--font-family);
@@ -55,8 +54,6 @@ max-width: 750px;
 
 .vidioitem_info {
   max-width: 750px;
-  
-
 }
 
 .vidioitem_info_item-1 {
@@ -150,13 +147,20 @@ max-width: 750px;
   position: absolute;
   top: 50px;
   right: 50px;
-}
-
-@media (max-width: 768px) {
-  .trending-videos {
+  @media (max-width: 768px) {
+    
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 20px;
+      position: static;
+    
+  }
+  @media (max-width: 1376px) and (min-width:768px) {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 20px;
     position: static;
-  }
 }
+}
+
+

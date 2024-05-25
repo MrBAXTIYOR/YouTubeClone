@@ -10,18 +10,26 @@ import "./ChannelItem.scss";
 
 const ChannelItem = (props) => {
   const [channelvid, setChannelvid] = useState([]);
-  const { rightbarOpen } = useContext();
+  const { rightbarOpen, isLoading, setIsLoading } = useContext();
   console.log(rightbarOpen);
   const getChannelVidio = async () => {
-    const { data } = await customAxios.get("/channel/videos", {
-      params: {
-        channel_id: props?.channel_id,
-      },
-    });
-    setChannelvid([data]);
+    setIsLoading(true)
+    try {
+      const { data } = await customAxios.get("/channel/videos", {
+        params: {
+          channel_id: props?.channel_id,
+        },
+      });
+      setChannelvid([data]);
+    } catch (error) {
+      console.log(error);
+    }
+    finally{
+      setIsLoading(false)
+    }
   };
   useEffect(() => {
-    setTimeout(getChannelVidio, 2000);
+    setTimeout(getChannelVidio, 1000);
   }, []);
   return (
     <div className={rightbarOpen ? "channelitem open" : "channelitem"}>
@@ -36,9 +44,7 @@ const ChannelItem = (props) => {
       <div className="channel_info_item-2">
         <p>Home</p>
       </div>
-      <div className="channelvidio_wrapper">
-        {channelvid && channelvid.map((vid) => <ChannelItembody key={uuidv4()} {...vid} />)}
-      </div>
+      <div className="channelvidio_wrapper">{channelvid && channelvid.map((vid) => <ChannelItembody key={uuidv4()} {...vid} />)}</div>
     </div>
   );
 };

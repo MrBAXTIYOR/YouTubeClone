@@ -7,15 +7,13 @@ import MainLayout from "./layout/MainLayout";
 
 function App() {
   return (
-    <>
-      <MainLayout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/videos/:id" element={<Vidio />} />
-          <Route path="/channel/:id" element={<Channel />} />
-        </Routes>
-      </MainLayout>
-    </>
+    <MainLayout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/videos/:id" element={<Vidio />} />
+        <Route path="/channel/:id" element={<Channel />} />
+      </Routes>
+    </MainLayout>
   );
 }
 

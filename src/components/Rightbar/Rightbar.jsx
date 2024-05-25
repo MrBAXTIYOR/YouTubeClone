@@ -1,6 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { Link } from "react-router-dom";
 
 import Card from "../Card/Card";
 import customAxios from "../../service/axios";
@@ -8,10 +7,12 @@ import Rigthbarheader from "./Rigthbarheader";
 import { useContext } from "../../context/Context";
 
 import "./Rightbar.scss";
+import Loader from "../Loader/Loader";
 
 export default function Rightbar() {
   const { setIsLoading, isLoading } = useContext();
   const { vidio, setVidio } = useContext();
+  const [bg, setBg] = useState("all");
 
   const getData = async () => {
     setIsLoading(true);
@@ -36,20 +37,11 @@ export default function Rightbar() {
   return (
     <>
       {isLoading ? (
-        <div className="loader">
-          <div className="loaderInner" />
-        </div>
+        <Loader />
       ) : (
         <div className="rigthbar_wrapper">
-          <Rigthbarheader />
-          <div className="card">
-            {vidio &&
-              vidio.map((vid) => (
-                <Link to={`/videos/${vid.video_id}`}>
-                  <Card key={uuidv4()} {...vid} />
-                </Link>
-              ))}
-          </div>
+          <Rigthbarheader {...{ bg, setBg }} />
+          <div className="cards">{!!vidio?.length && vidio.map((vid) => <Card key={uuidv4()} {...vid} />)}</div>
         </div>
       )}
     </>
